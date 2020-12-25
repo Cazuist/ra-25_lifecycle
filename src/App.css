@@ -2,6 +2,10 @@
 @import url("//fonts.googleapis.com/css?family=Work+Sans:300,400,600");
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+*,::before,::after {
+  box-sizing: border-box;
+}
+
 .task-title {
   display: flex;
   justify-content: center;
@@ -16,118 +20,177 @@
   background-image: linear-gradient(45deg, blue, yellow);
 }
 
-/* Форматирование даты публикации
+/* Мировые часы
 */
-#root {
+
+.clock-widget_container {
+  width: 700px;
+  margin-bottom: 50px;
+}
+
+.clock-form {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 }
 
-.video {
-  width: 230px;
-  margin: 10px;
-  padding: 10px 10px 1px;
-  background: #000000;
+.input-box {
+  display: flex;
+  flex-direction: column;
 }
 
-.video iframe {
-  display: block;
-  margin: 0 auto;
-  width: 230px;
-  height: 120px;
-  border: none;
+input,
+button {
+  height: 30px;
+  outline: none;
 }
 
-.video .date {
-  margin: 6px 0 0 0;
-  text-align: right;
-  font-size: 80%;
-  color: #cccccc;
+input {
+  width: 200px;
 }
 
-/* Популярное и новое
-*/
-.wrap-item,
-.item {
-  width: 215px;
-  margin: 10px;
-  padding: 10px 10px 1px;
-  background: #000000;
+button {
+  align-self: flex-end;
 }
 
-.item-video iframe {
-  display: block;
-  margin: 0 auto;
-  width: 215px;
-  height: 120px;
-  border: none;
+h3 {
+  margin: 0;
+  margin-bottom: 10px;
 }
 
-.item-article h3 {
-  display: table-cell;
-  margin: 0 auto;
-  width: 215px;
-  height: 120px;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 140%;
-  font-weight: normal;
+.clocks-box {
+  display: flex;
+  padding-top: 20px;
 }
 
-.item-article h3 a {
-  color: #ffffff;
-}
-
-.item .views {
-  margin: 6px 0 0 0;
-  text-align: right;
-  font-size: 80%;
-  color: #cccccc;
-}
-
-.wrap-item {
+.clock-box {
   position: relative;
-  height: 130px;
+  border: 2px solid tan;
+  padding: 10px;
 }
 
-.wrap-item .label {
-  display: inline-block;
+.clock-box:not(:last-of-type) {
+  margin-right: 20px;    
+}
+
+.time-field {
+  padding: 5px;
+
+  border: green;
+  color: gray;
+  background-color: lightgreen;
+}
+
+.del-btn {
   position: absolute;
-  top: 3px;
-  left: 3px;
-  border: 1px solid;
-  border-radius: 3px;
-  color: #fff;
+  top: -10px;
+  right: -10px;
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 20px;
+  height: 20px;
+
+  border: 2px solid tan;
+  background-color: white;
+  border-radius: 50%;
+
+  cursor: pointer;
 }
 
-.wrap-item .item {
-  width: 195px;
-  height: 110px;
-  margin: 0 auto;
+/* CRUD
+*/
+
+.notes-widget_container {
+  width: 800px;
 }
 
-.wrap-item .item iframe,
-.wrap-item .item h3 {
-  width: 190px;
-  height: 105px;
+.widget-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.wrap-item-new {
-  background-color: rgba(41, 198, 31, 0.47);
+.notes-widget_title {
+  margin: 0;
+  margin-right: 15px;
+
+  font-size: 35px;
+  text-transform: uppercase;
 }
 
-.wrap-item-new .label {
-  background-color: rgba(15, 145, 37, 0.72);
-  border-color: rgba(15, 145, 37, 1);
+.material-icon {
+  display: flex;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+
+  font-family: 'Material Icons';
+  border: 2px solid tan;
+  border-radius: 50%;
+  font-size: 25px;
+  background-color: white;
+
+  cursor: pointer;
 }
 
-.wrap-item-popular {
-  background-color: rgba(231, 0, 25, 0.64);
+.reload_btn {
+  padding-left: 3px;  
+  color: green;  
 }
 
-.wrap-item-popular .label {
-  background-color: rgba(176, 0, 24, 0.73);
-  border-color: rgba(176, 0, 24, 0, 1);
+.new-note_form {
+  position: relative;
+  width: 400px;
+  min-height: 150px;  
+}
+
+.new-note_field {
+  width: 100%; 
+  min-height: 150px;
+  padding: 5px 45px 5px 5px;
+
+  resize: none;
+  outline: none;
+  border: 2px solid gray;
+}
+
+.new-note_btn {
+  position: absolute;
+  right: 5px;
+  bottom: 10px;
+  z-index: 10;
+
+  color: aquamarine;
+}
+
+.notes_box {
+  display: flex;
+  padding: 20px;
+
+  flex-wrap: wrap;
+}
+
+.note-card {
+  position: relative;
+  width: 300px;
+  min-height: 150px;
+  padding: 10px;
+
+  border: 2px solid gray;
+}
+
+.note-card:not(:last-of-type) {
+  margin-right: 20px;    
+}
+
+.delete-btn {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  
+  color: red;
+  font-size: 35px;
 }

@@ -1,18 +1,15 @@
 import './App.css';
-import VideoList from './components/time/VideoList';
-import List from './components/highlights/List';
-
-import list from './data/videos';
-import blocks from './data/blocks';
+import ClockWidget from './components/clock/ClockWidget';
+import NotesWidget from './components/crud/NotesWidget';
 
 function App() {
   return (
     <>      
-      <div className="task-title">Форматирование даты публикации</div>
-      <VideoList list={list} />
+      <div className="task-title">Мировые часы</div>
+      	<ClockWidget />
 
-      <div className="task-title">Популярное и новое</div>
-      <List list={blocks} />
+      <div className="task-title">CRUD</div>
+      	<NotesWidget />
     </>    
   );
 }
